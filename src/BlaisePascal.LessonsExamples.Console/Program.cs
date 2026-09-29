@@ -1,4 +1,6 @@
-﻿public class Program
+﻿using BlaisePascal.LessonsExamples.Domain;
+
+public class Program
 {
     //Metodo di entrata per l'esecuzione del codice
     public static void Main()
@@ -23,5 +25,8 @@
         //qualora ci fossero nomi di variabili all'interno di parentesi graffe {} deve mostrare il valore di quelle variabili
         Console.WriteLine($"\n\nSelected shipping type: {shippingType}");
         Console.WriteLine($"Total cost: {totalCost}");
+
+        //[Type] [variabile] = new [Type](); è la sintassi per creare un nuovo oggetto di una classe
+        Enemy newEnemy = new Enemy(); //Enemy class istance
     }
 }
