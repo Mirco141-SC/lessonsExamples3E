@@ -18,6 +18,21 @@ namespace BlaisePascal.LessonsExamples.Example2.Domain
         //
         //Getter and setter, if not declared, do NOT exist default
         public string LicensePlate { get; private set; }
+        public int OdometerKm 
+        {
+            get
+            {
+                return _odometerKm;
+            }
+            private set 
+            {
+                if (value < 0) throw new ArgumentException("Value cannot be lower than 0");
+
+                _odometerKm = value;
+            }
+        }
+        public int DailyRate { get; private set; }
+        public int FuelLevelPercentage { get; private set; }
 
         //The constructor is the ONE AND ONLY method that does NOT require return type definition
         //It has the same name as the class, and is called when creating a new object
