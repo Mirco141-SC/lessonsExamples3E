@@ -1,4 +1,4 @@
-﻿namespace BlaisePascal.LessonsExamples.DomainTest
+﻿namespace BlaisePascal.LessonsExamples.Example1.DomainTest
 {
     public class UnitTest1
     {

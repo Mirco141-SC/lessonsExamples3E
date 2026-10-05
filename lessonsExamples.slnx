@@ -2,17 +2,17 @@
   <Folder Name="/example1/" />
   <Folder Name="/example1/doc/" />
   <Folder Name="/example1/src/">
-    <Project Path="src/BlaisePascal.LessonsExamples.Console/BlaisePascal.LessonsExamples.Example1.UIConsole.csproj" Id="a056513f-34f0-481d-a26c-bbc69a8dca31" />
-    <Project Path="src/BlaisePascal.LessonsExamples.Domain/BlaisePascal.LessonsExamples.Example1.Domain.csproj" />
+    <Project Path="example1/src/BlaisePascal.LessonsExamples.Example1.Domain/BlaisePascal.LessonsExamples.Example1.Domain.csproj" Id="d7c7dea5-7cca-41d5-b43e-6094bd1a1223" />
+    <Project Path="example1/src/BlaisePascal.LessonsExamples.Example1.UIConsole/BlaisePascal.LessonsExamples.Example1.UIConsole.csproj" Id="4bf305bc-ff8a-47e2-8b9f-ae9f1f8c1454" />
   </Folder>
   <Folder Name="/example1/test/">
-    <Project Path="test/BlaisePascal.LessonsExamples.DomainTest/BlaisePascal.LessonsExamples.Example1.DomainTest.csproj" />
+    <Project Path="example1/test/BlaisePascal.LessonsExamples.Example1.DomainTest/BlaisePascal.LessonsExamples.Example1.DomainTest.csproj" Id="96dd11d1-89e2-4522-8df9-3b34ca160247" />
   </Folder>
   <Folder Name="/example2/" />
   <Folder Name="/example2/doc/" />
   <Folder Name="/example2/src/">
-    <Project Path="BlaisePascal.LessonsExamples.Example2.Console/BlaisePascal.LessonsExamples.Example2.UIConsole.csproj" Id="dede4842-79ef-4310-aa54-a0e4fbd79c46" />
-    <Project Path="example2/src/BlaisePascal.lessonsExamples.example2.Domain/BlaisePascal.LessonsExamples.Example2.Domain.csproj" Id="c46c561e-3ecd-4dfe-b37f-29279d3a7df9" />
+    <Project Path="example2/src/BlaisePascal.lessonsExamples.example2.Domain/BlaisePascal.LessonsExamples.Example2.Domain.csproj" Id="13d590a1-42ab-439e-88f4-ad8b75869911" />
+    <Project Path="example2/src/BlaisePascal.LessonsExamples.Example2.UIConsole/BlaisePascal.LessonsExamples.Example2.UIConsole.csproj" Id="574b6aec-3cdc-4989-87f5-a9d09aaf601f" />
   </Folder>
   <Folder Name="/example2/test/" />
 </Solution>

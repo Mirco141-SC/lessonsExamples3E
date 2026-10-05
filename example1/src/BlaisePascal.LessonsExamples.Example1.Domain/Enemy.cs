@@ -1,8 +1,8 @@
 ﻿/*--
- * Author: Mirco Rossi
- * Date: 29-09-2026
- * Goal: Defining enemy player
- */
+* Author: Mirco Rossi
+* Date: 29-09-2026
+* Goal: Defining enemy player
+*/
 
 namespace BlaisePascal.LessonsExamples.Domain
 {

@@ -18,29 +18,36 @@ namespace BlaisePascal.LessonsExamples.Example2.Domain
         //
         //Getter and setter, if not declared, do NOT exist default
         public string LicensePlate { get; private set; }
-        public int OdometerKm 
+        public int OdometerKm
         {
             get
+            { return _odometerKm; }
+            private set
             {
-                return _odometerKm;
-            }
-            private set 
-            {
-                if (value < 0) throw new ArgumentException("Value cannot be lower than 0");
+                if (value < 0) throw new ArgumentException($"Value not allowed in {nameof(OdometerKm)}: {value}");
 
                 _odometerKm = value;
             }
         }
-        public int DailyRate { get; private set; }
-        public int FuelLevelPercentage { get; private set; }
+        public double DailyRate { get; private set; }
+        public double FuelLevelPercentage { get; private set; }
 
         //The constructor is the ONE AND ONLY method that does NOT require return type definition
         //It has the same name as the class, and is called when creating a new object
         //
         //If we don't declare a constructor, the compiler will run a default one (empty)
-        public Vehicle(string licensePlate) 
+        public Vehicle(string licensePlate)
         {
             LicensePlate = licensePlate;
+        }
+
+        //The constructor can be overloaded as any other method
+        public Vehicle(string licensePlate, int odometerKm, double dailyRate, double fuelLevelPercentage)
+        {
+            LicensePlate = licensePlate;
+            OdometerKm = odometerKm;
+            DailyRate = dailyRate;
+            FuelLevelPercentage = fuelLevelPercentage;
         }
     }
 }

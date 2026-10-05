@@ -5,7 +5,7 @@ public class Program
     //Metodo di entrata per l'esecuzione del codice
     public static void Main()
     {
-        Console.WriteLine("Insert client's name:"); 
+        Console.WriteLine("Insert client's name:");
         string clientName = Console.ReadLine(); //Lettura input da console e assegnazione di esso ad una variabile
 
         Console.WriteLine($"\n\nWelcome to your shipping portal {clientName}!\n\n");
