@@ -10,5 +10,6 @@ public class Program
 
         newEnemy.setHealth(10);
         Console.WriteLine($"Enemy health: {newEnemy.Health}");
+        Console.WriteLine(newEnemy.isAlive() ? "Enemy is alive" : "Enemy is dead");
     }
 }

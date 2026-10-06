@@ -49,7 +49,7 @@ namespace BlaisePascal.LessonsExamples.Domain
         //This is safer, because the user does not know the structure behind our code (Propety not exposed).
         //This methods takes care of checking the entering value, and sets the Health method instead of the field.
         //The Health method therefore does not need checks anymore
-        public void setHealth(int newHealth)
+        public void SetHealth(int newHealth)
         {
             //We avoid using { } if the instruction is only on 1 line.
             if (newHealth < 0)
@@ -60,9 +60,18 @@ namespace BlaisePascal.LessonsExamples.Domain
             else _health = newHealth; //Health = newHealth;
         }
 
-        public bool isAlive()
+        public bool IsAlive()
         {
             return _health > 0;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            if(damage < 0)
+                damage = 0;
+
+
+            SetHealth(_health - damage);
         }
     }
 }
