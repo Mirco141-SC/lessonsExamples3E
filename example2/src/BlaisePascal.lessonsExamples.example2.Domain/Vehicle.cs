@@ -29,8 +29,28 @@ namespace BlaisePascal.LessonsExamples.Example2.Domain
                 _odometerKm = value;
             }
         }
-        public double DailyRate { get; private set; }
-        public double FuelLevelPercentage { get; private set; }
+        public double DailyRate
+        {
+            get { return _dailyRate; }
+            private set
+            {
+                if (value < 0)
+                    throw new ArgumentException($"Value not allowed in {nameof(DailyRate)}: {value}");
+
+                _dailyRate = value;
+            }
+        }
+        public double FuelLevelPercentage
+        {
+            get { return _fuelLevelPercentage; }
+            private set
+            {
+                if (value < 0 || value > 100)
+                    throw new ArgumentException($"Value not allowed in {nameof(FuelLevelPercentage)}: {value}");
+
+                _fuelLevelPercentage = value;
+            }
+        }
 
         //The constructor is the ONE AND ONLY method that does NOT require return type definition
         //It has the same name as the class, and is called when creating a new object
@@ -48,6 +68,17 @@ namespace BlaisePascal.LessonsExamples.Example2.Domain
             OdometerKm = odometerKm;
             DailyRate = dailyRate;
             FuelLevelPercentage = fuelLevelPercentage;
+        }
+
+        public void registerData(int newKm, double consumedFuel)
+        {
+            if(newKm <= 0) 
+                throw new ArgumentException($"Value not allowed in {nameof(newKm)}: {newKm}");
+            if(consumedFuel < 0)
+                throw new ArgumentException($"Value not allowed in {nameof(consumedFuel)}: {consumedFuel}");
+
+            OdometerKm += newKm;
+            FuelLevelPercentage -= consumedFuel;
         }
     }
 }
