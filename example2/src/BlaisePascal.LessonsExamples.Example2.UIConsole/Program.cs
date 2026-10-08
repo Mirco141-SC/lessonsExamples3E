@@ -14,11 +14,19 @@ namespace BlaisePascal.LessonsExamples.Example2.UIConsole
 
             Console.WriteLine(licensePlate); //Console.WriteLine() tries to call the ToString method for each argument
 
-            Vehicle vehicle1 = new Vehicle("xyz", -1, 50, 75);
-            Console.WriteLine(vehicle1.LicensePlate);
-            Console.WriteLine(vehicle1.OdometerKm);
-            Console.WriteLine(vehicle1.DailyRate);
-            Console.WriteLine(vehicle1.FuelLevelPercentage);
+            try
+            {
+                Vehicle vehicle1 = new Vehicle("xyz", -1, 50, 75);
+                Console.WriteLine(vehicle1.LicensePlate);
+                Console.WriteLine(vehicle1.OdometerKm);
+                Console.WriteLine(vehicle1.DailyRate);
+                Console.WriteLine(vehicle1.FuelLevelPercentage);
+            } catch(Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"\nError:\n{ex.Message}");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
         }
     }
 }

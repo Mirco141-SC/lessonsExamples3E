@@ -17,7 +17,7 @@ namespace BlaisePascal.LessonsExamples.Example2.Domain
         //The compiler will still create a hidden "backfield" as an attribute. The value actually stays there, the property is just an interface to interact with it
         //
         //Getter and setter, if not declared, do NOT exist default
-        public string LicensePlate { get; private set; }
+        public string LicensePlate { get; private set;/*TODO: Implement set validation*/ }
         public int OdometerKm
         {
             get
