@@ -4,7 +4,7 @@
 * Goal: Defining enemy player
 */
 
-namespace BlaisePascal.LessonsExamples.Domain
+namespace BlaisePascal.LessonsExamples.Example1.Domain
 {
     /// <summary>
     /// 
