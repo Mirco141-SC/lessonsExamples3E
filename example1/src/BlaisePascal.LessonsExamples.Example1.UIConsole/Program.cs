@@ -1,4 +1,4 @@
-﻿using BlaisePascal.LessonsExamples.Domain;
+﻿using BlaisePascal.LessonsExamples.Example1.Domain;
 
 public class Program
 {
@@ -8,8 +8,8 @@ public class Program
         //[Type] [variabile] = new [Type](); è la sintassi per creare un nuovo oggetto di una classe
         Enemy newEnemy = new Enemy(); //Enemy class istance
 
-        newEnemy.setHealth(10);
+        //newEnemy.setHealth(10);
         Console.WriteLine($"Enemy health: {newEnemy.Health}");
-        Console.WriteLine(newEnemy.isAlive() ? "Enemy is alive" : "Enemy is dead");
+        //Console.WriteLine(newEnemy.isAlive() ? "Enemy is alive" : "Enemy is dead");
     }
 }
