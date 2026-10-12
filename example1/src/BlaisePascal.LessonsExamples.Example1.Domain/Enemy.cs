@@ -43,7 +43,10 @@ namespace BlaisePascal.LessonsExamples.Example1.Domain
         private const int MaxHealth = 100; //constant field that represents the maximum health of the enemy
 
         //Public constructor to initiate the enemy with a specific health value
-        public Enemy() { }
+        public Enemy() 
+        {
+            Health = MaxHealth;        
+        }
 
         //Alternative way of providing a public Set method.
         //This is safer, because the user does not know the structure behind our code (Propety not exposed).
@@ -54,24 +57,21 @@ namespace BlaisePascal.LessonsExamples.Example1.Domain
             //We avoid using { } if the instruction is only on 1 line.
             if (newHealth < 0)
                 //At this point, we could directly skip the Property and directly set the field/attribute
-                _health = 0; //Health = 0;
-            else if (newHealth > 100)
-                _health = 100; //Health = 100;
-            else _health = newHealth; //Health = newHealth;
+                Health = 0; //Health = 0;
+            else if (newHealth > MaxHealth)
+                Health = MaxHealth; //Health = 100;
+            else Health = newHealth; //Health = newHealth;
         }
 
         public bool IsAlive()
         {
-            return _health > 0;
+            return Health > 0;
         }
 
         public void TakeDamage(int damage)
         {
-            if(damage < 0)
-                damage = 0;
-
-
-            SetHealth(_health - damage);
+            if(damage > 0)
+                SetHealth(Health - damage);
         }
     }
 }
