@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace BlaisePascal.LessonsExamples.Example2.Domain
 {
@@ -17,7 +18,45 @@ namespace BlaisePascal.LessonsExamples.Example2.Domain
         //The compiler will still create a hidden "backfield" as an attribute. The value actually stays there, the property is just an interface to interact with it
         //
         //Getter and setter, if not declared, do NOT exist default
-        public string LicensePlate { get; private set;/*TODO: Implement set validation*/ }
+        public string LicensePlate
+        {
+            get;
+            private set
+            {
+                //Type -> AA 000AA
+
+                /* //I firstly though about this version of test, utilizing String.IsNullOrWaitSpace and Lenght of string input,
+                   //Then the only way I knew to check if the input matches to the expected format was by using Regex (Regular Expression), so I had to use them
+                   //Though this test only uses a simple Regex to validate the format of the input, but uses normal functions to check for Lenght and unacceptable values
+                if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException($"Value {nameof(value)} cannot be Null or Whitespace");
+
+                string valueNoSpaces = value.Replace(" ", "").ToUpper();
+                Regex expression = new Regex("^[A-Z]{2}[0-9]{3}[A-Z]{2}$");
+
+                if(valueNoSpaces.Length != 7 || !expression.IsMatch(valueNoSpaces))
+                    throw new ArgumentException($"Value {nameof(value)} must be of type 'AA 000AA'");
+
+                field = valueNoSpaces;
+                */
+
+                //Then, knowning Regex, I couldn't hold myself from doing all the checks just with 1 single Regex.
+                //It's simplier and shorter, and does 3 checks in 1
+
+                /* Regex meanings (note to self):
+                 * [] Range of characters to expect
+                 * A-Z UPPERCASE letters from A to Z
+                 * a-z lowercase letters from a to z
+                 * 0-9 numbers from 0 to 9
+                 * {} how many of the previously declared characters we expect
+                 * \\s Expect a space
+                 * ? What's written before this is not mandatory
+                 */
+                Regex expression = new Regex("[A-Za-z]{2}\\s?[0-9]{3}[A-Za-z]{2}");
+                if(!expression.IsMatch(value)) throw new ArgumentException("value");
+
+                field = value.ToUpper();
+            }
+        }
         public int OdometerKm
         {
             get
