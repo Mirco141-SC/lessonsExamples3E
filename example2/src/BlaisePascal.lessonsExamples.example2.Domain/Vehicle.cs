@@ -56,15 +56,16 @@ namespace BlaisePascal.LessonsExamples.Example2.Domain
         //It has the same name as the class, and is called when creating a new object
         //
         //If we don't declare a constructor, the compiler will run a default one (empty)
-        public Vehicle(string licensePlate)
-        {
-            LicensePlate = licensePlate;
-        }
+        public Vehicle(string licensePlate) : this(licensePlate, 0, 0, 100) { } //The ": this(licensePlate)" calls the main constructor and set the parameters we want to set
+
+        //public Vehicle(string mossad) { } //This is NOT allowed, even if the parameter has another name. Because what matters in constructors is the type of parameter.
 
         //The constructor can be overloaded as any other method
+        //Since we shouldn't repeat something that happens in another constructor we use the keyword ": this(parameter)"
+        //after the signature of this constructor, and code a 'main' constructor that accepts all parameters, while we use smaller ones that all call back to this
         public Vehicle(string licensePlate, int odometerKm, double dailyRate, double fuelLevelPercentage)
         {
-            LicensePlate = licensePlate;
+            LicensePlate = licensePlate; 
             OdometerKm = odometerKm;
             DailyRate = dailyRate;
             FuelLevelPercentage = fuelLevelPercentage;
