@@ -25,21 +25,23 @@ namespace BlaisePascal.LessonsExamples.Example2.Domain
             {
                 //Type -> AA 000AA
 
-                /* //I firstly though about this version of test, utilizing String.IsNullOrWaitSpace and Lenght of string input,
-                   //Then the only way I knew to check if the input matches to the expected format was by using Regex (Regular Expression), so I had to use them
-                   //Though this test only uses a simple Regex to validate the format of the input, but uses normal functions to check for Lenght and unacceptable values
-                if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException($"Value {nameof(value)} cannot be Null or Whitespace");
-
+                //Method 1//
                 string valueNoSpaces = value.Replace(" ", "").ToUpper();
-                Regex expression = new Regex("^[A-Z]{2}[0-9]{3}[A-Z]{2}$");
 
-                if(valueNoSpaces.Length != 7 || !expression.IsMatch(valueNoSpaces))
-                    throw new ArgumentException($"Value {nameof(value)} must be of type 'AA 000AA'");
+                if(valueNoSpaces.Length != 7 || string.IsNullOrWhiteSpace(valueNoSpaces))
+                    throw new ArgumentException($"Value {nameof(LicensePlate)} must be of type 'AA 000AA'");
+                if (!char.IsLetter(valueNoSpaces[0]) || !char.IsLetter(valueNoSpaces[1]) || !char.IsDigit(valueNoSpaces[2]) ||
+                    !char.IsDigit(valueNoSpaces[3]) || !char.IsDigit(valueNoSpaces[4]) || !char.IsLetter(valueNoSpaces[5]) ||
+                    !char.IsLetter(valueNoSpaces[6]))
+                    throw new ArgumentException($"Value {nameof(LicensePlate)} must be of type 'AA 000AA'");
+
+                //All strings ARE stored as Arrays. More precisely, "char arrays". 
 
                 field = valueNoSpaces;
-                */
-
-                //Then, knowning Regex, I couldn't hold myself from doing all the checks just with 1 single Regex.
+                
+                //EXTRA: Method 2//
+                //
+                //Knowning Regex, I couldn't hold myself from doing all the checks just with 1 single Regex.
                 //It's simplier and shorter, and does 3 checks in 1
 
                 /* Regex meanings (note to self):
@@ -51,10 +53,13 @@ namespace BlaisePascal.LessonsExamples.Example2.Domain
                  * \\s Expect a space
                  * ? What's written before this is not mandatory
                  */
+
+                /*
                 Regex expression = new Regex("[A-Za-z]{2}\\s?[0-9]{3}[A-Za-z]{2}");
                 if(!expression.IsMatch(value)) throw new ArgumentException("value");
 
                 field = value.ToUpper();
+                */
             }
         }
         public int OdometerKm
@@ -90,6 +95,14 @@ namespace BlaisePascal.LessonsExamples.Example2.Domain
                 _fuelLevelPercentage = value;
             }
         }
+
+        //Something that has the keyword "static" is something that is shared within all the classes.
+        //It can be accessed directly by calling it from the Class > Vehicle.MaxFuelLevelPercentage
+        //
+        //It's preffered to a const because it occcupies X bit of space for ALL the classes (they all refer to the same value) 
+        //
+        //It can be made editable, and when it's edited it will be edited in ALL the classes
+        public static double MaxFuelLevelPercentage { get; } = 100;
 
         //The constructor is the ONE AND ONLY method that does NOT require return type definition
         //It has the same name as the class, and is called when creating a new object
